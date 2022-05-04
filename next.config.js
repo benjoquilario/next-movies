@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig
+module.exports = {
+  reactStricMode: true,
+  images: {
+    domains: ['themoviedb.org', 'image.tmdb.org', 'd-movie.netlify.app'],
+  },
+};
