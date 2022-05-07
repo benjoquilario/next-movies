@@ -70,7 +70,7 @@ const Row = ({ title, movies }: IMovieRow) => {
         ref={rowRef}
         className="flex items-center gap-2 relative overflow-x-scroll scrollbar-hide ml-6"
       >
-        {movies.length === 0 && <div>Loadding</div>}
+        {movies?.length === 0 && <div>Loadding</div>}
         {movies?.map(movie => (
           <Thumbnail movie={movie} key={movie.id} />
         ))}
