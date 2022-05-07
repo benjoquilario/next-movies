@@ -6,8 +6,7 @@ interface IRecommendationProps {
     movieType: string;
 }
 
-const Recommendation = ({recommendation, movieType}: IRecommendationProps) => {
-  return (
+const Recommendation = ({recommendation, movieType}: IRecommendationProps) => (
     <div className="mt-5">
         <div>
             <div className="mb-5">
@@ -29,6 +28,5 @@ const Recommendation = ({recommendation, movieType}: IRecommendationProps) => {
         </div>
     </div>
   )
-}
 
 export default Recommendation

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router'
 import Link from 'next/link';
 import { BASE_URL } from '../../config';
 import { IMovie } from '../../lib/types';

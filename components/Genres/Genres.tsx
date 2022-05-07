@@ -2,8 +2,7 @@ interface IGenres {
   genre: string;
 }
 
-const Genres = ({ genre }: IGenres) => {
-  return (
+const Genres = ({ genre }: IGenres) => (
     <a className="flex items-center leading-none text-[13px] text-[#ff206e] uppercase py-[8px] mr-[8px] font-bold">
       <svg
         viewBox="0 0 512 512"
@@ -15,7 +14,6 @@ const Genres = ({ genre }: IGenres) => {
       </svg>
       {genre}
     </a>
-  );
-};
+);
 
 export default Genres;

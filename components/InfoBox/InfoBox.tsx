@@ -10,8 +10,7 @@ interface IInfoBoxProps {
   movieInfo: IMovieInfo;
 }
 
-const InfoBox = ({ credits, movieInfo }: IInfoBoxProps) => {
-  return (
+const InfoBox = ({ credits, movieInfo }: IInfoBoxProps) => (
     <>
       <div className="grid grid-cols-1 justify-items-center gap-[22px] md:grid-cols-[320px_1fr] md:gap-[18px]">
         <div className="min-w-[318px] w-[318px] h-auto">
@@ -60,7 +59,6 @@ const InfoBox = ({ credits, movieInfo }: IInfoBoxProps) => {
         </div>
       </div>
     </>
-  );
-};
+  )
 
 export default InfoBox;
