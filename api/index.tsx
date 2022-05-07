@@ -20,6 +20,9 @@ const api = {
     },
     recommendationMovie:(movieId: string | number): Promise<any> => {
         return getJSON(`${API_URL}/movie/${movieId}/recommendations?api_key=${API_KEY}`)
+    },
+    searchMovies:(searchTerm: string | number): Promise<any> => {
+        return getJSON(`${API_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}`)
     }
 }
 

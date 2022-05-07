@@ -15,7 +15,7 @@ const Thumbnail = ({ movie }: IThumbnailPros) =>  (
       >
         <div className="relative overflow-hidden w-full rounded-[6px] h-[160px] md:h-[225px] ">
           <div className="relative w-full h-full hover:opacity-80 transition-opacity">
-            <Link href={`/${movie?.media_type}/${movie.id}`} >
+            <Link href={`/${movie?.media_type || 'movie'}/${movie.id}`} >
               <a
                 className="relative inline-block w-full h-full"
               >
