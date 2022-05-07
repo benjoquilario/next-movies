@@ -56,7 +56,7 @@ const InfoBox = ({ credits, movieInfo }: IInfoBoxProps) => {
             </p>
           </div>
           <Credits credits={credits} />
-          <Buttons />
+          <Buttons homepage={movieInfo?.homepage} imdbId={movieInfo.imdb_id} />
         </div>
       </div>
     </>
