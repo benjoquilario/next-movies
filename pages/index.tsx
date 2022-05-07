@@ -4,7 +4,7 @@ import Row from '../components/Row/Row';
 import { API_URL } from '../config';
 import { IMovies } from '../lib/types';
 import request from '../lib/services/helper';
-import { getJSON } from '../lib/services/requests';
+import getJSON from '../lib/services/requests';
 import Head from 'next/head';
 import SearchForm from '../components/Search/SearchForm';
 
@@ -51,7 +51,7 @@ const Home = ({
   );
 };
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const [
     fetchTrending,
     fetchTopRated,
@@ -69,6 +69,7 @@ export const getStaticProps = async () => {
     getJSON(`${API_URL}${request.fetchRomanceMovies}`),
     getJSON(`${API_URL}${request.fetchDocumentaries}`),
   ]);
+
 
   return {
     props: {
