@@ -1,4 +1,4 @@
-export const API_KEY = 'fe79a58b69fb8d843d116e2953d8de94';
+export const API_KEY = process.env.NEXT_PUBLIC_API_KEY;
 
 const requests = {
   fetchDiscover: `/discover/all?api_key=${API_KEY}&with_network=213`,
