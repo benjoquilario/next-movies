@@ -1,11 +1,10 @@
 import Head from "next/head";
-import { getJSON } from "../../lib/services/requests";
-import { API_URL, BASE_URL } from "../../config";
-import { API_KEY } from "../../lib/services/helper";
+import { BASE_URL } from "../../config";
 import {IMovieInfo, ICredits, IMovies} from '../../lib/types';
 import Banner from '../../components/Banner/Banner';
 import InfoBox from '../../components/InfoBox/InfoBox';
 import Recommendation from '../../components/Recommendation/Recommendation';
+import api from '../../api';
 
 interface ILoadedTVShow {
   loadedMovieShows: IMovieInfo;
@@ -18,7 +17,7 @@ const MovieView = ({ loadedMovieShows, loadedCredits, loadedRecommendation }: IL
     <div className="min-h-screen overflow-x-hidden bg-[#0B1622]">
       <Head>
         <title>
-          Tv Shows | {loadedMovieShows?.original_title || loadedMovieShows?.title || loadedMovieShows?.original_name}
+          Movies | {loadedMovieShows?.original_title || loadedMovieShows?.title || loadedMovieShows?.original_name}
         </title>
       </Head>
       <main>
@@ -37,9 +36,7 @@ export const getServerSideProps = async (context: any) => {
     const movieId = params.id;
   
     const [fetchMovie, fetchCredits, fetchRecommendation] = await Promise.all([
-      getJSON(`${API_URL}/movie/${movieId}?api_key=${API_KEY}`),
-      getJSON(`${API_URL}/movie/${movieId}/credits?api_key=${API_KEY}`),
-      getJSON(`${API_URL}/movie/${movieId}/recommendations?api_key=${API_KEY}`)
+      api.movie(movieId), api.creditsMovie(movieId), api.recommendationMovie(movieId),
     ]);
   
     return {

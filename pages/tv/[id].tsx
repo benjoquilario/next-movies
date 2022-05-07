@@ -2,10 +2,9 @@ import Head from 'next/head';
 import Banner from '../../components/Banner/Banner';
 import InfoBox from '../../components/InfoBox/InfoBox';
 import Recommendation from '../../components/Recommendation/Recommendation';
-import { API_URL, BASE_URL } from '../../config';
-import { API_KEY } from '../../lib/services/helper';
-import { getJSON } from '../../lib/services/requests';
-import { ICredits, IMovies, IMovieInfo } from '../../lib/types';
+import { BASE_URL } from '../../config';
+import { ICredits, IMovies, IMovieInfo } from '../../lib/types'
+import api from '../../api';
 
 interface ILoadedTVShow {
   loadedTvShows: IMovieInfo;
@@ -35,20 +34,19 @@ const TvShowsView = ({ loadedTvShows, loadedCredits, loadedRecommendation }: ILo
 export const getServerSideProps = async (context: any) => {
   const { params } = context;
   const movieId = params.id;
-
-  const [fetchMovie, fetchCredits, fetchRecommendation] = await Promise.all([
-    getJSON(`${API_URL}/tv/${movieId}?api_key=${API_KEY}`),
-    getJSON(`${API_URL}/tv/${movieId}/credits?api_key=${API_KEY}`),
-    getJSON(`${API_URL}/tv/${movieId}/recommendations?api_key=${API_KEY}`)
+  
+  const [fetchTv, fetchCredits, fetchRecommendation] = await Promise.all([
+    api.tv(movieId), api.creditsTv(movieId), api.recommendationTv(movieId),
   ]);
 
   return {
     props: {
-      loadedTvShows: fetchMovie,
+      loadedTvShows: fetchTv,
       loadedCredits: fetchCredits,
       loadedRecommendation: fetchRecommendation
     },
   };
 };
+
 
 export default TvShowsView;
