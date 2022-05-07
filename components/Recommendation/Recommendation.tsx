@@ -15,7 +15,7 @@ const Recommendation = ({recommendation, movieType}: IRecommendationProps) => {
                 <h3 className="text-white opacity-70 text-base uppercase">{movieType}</h3>
             </div>
         </div>
-        {recommendation.length === 0 && 
+        {recommendation?.length === 0 && 
                 <div className="text-white text-center mt-12">
                     <h3 className="text-[43px] font-bold">Sorry!</h3>
                     <h4 className="opacity-70 text-[22px]">There are no recommended movies...</h4>
@@ -23,7 +23,7 @@ const Recommendation = ({recommendation, movieType}: IRecommendationProps) => {
         }
         <div className="relative grid grid-cols-[repeat(auto-fill,150px)] gap-3 justify-center items-center">
             
-            {recommendation.map(movie => 
+            {recommendation?.map(movie => 
                 <Thumbnail key={movie.id} movie={movie} />
             )}
         </div>
