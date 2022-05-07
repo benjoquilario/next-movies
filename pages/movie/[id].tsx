@@ -17,7 +17,7 @@ const MovieView = ({ loadedMovieShows, loadedCredits, loadedRecommendation }: IL
     <div className="min-h-screen overflow-x-hidden bg-[#0B1622]">
       <Head>
         <title>
-          Movies | {loadedMovieShows?.original_title || loadedMovieShows?.title || loadedMovieShows?.original_name}
+          {loadedMovieShows?.original_title || loadedMovieShows?.title || loadedMovieShows?.original_name}
         </title>
       </Head>
       <main>

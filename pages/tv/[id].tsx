@@ -17,7 +17,7 @@ const TvShowsView = ({ loadedTvShows, loadedCredits, loadedRecommendation }: ILo
     <div className="min-h-screen overflow-x-hidden bg-[#0B1622]">
       <Head>
         <title>
-          Tv Shows | {loadedTvShows?.original_title || loadedTvShows?.title || loadedTvShows?.original_name}
+          {loadedTvShows?.original_title || loadedTvShows?.title || loadedTvShows?.original_name}
         </title>
       </Head>
       <main>
