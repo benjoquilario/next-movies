@@ -47,22 +47,17 @@ const Header = () => {
           >
             <ul className="flex gap-2 md:gap-3 text-center py-3 md:p-0 rounded">
               <li className="text-[12px] md:text-[14px] text-[#e5e5e5]">
-                <Link href="/">
-                  <a>Home</a>
-                </Link>
-              </li>
-              <li className="text-[12px] md:text-[14px] text-[#e5e5e5]">
-                <Link href="/">
+                <Link href="/tv">
                   <a>TV Shows</a>
                 </Link>
               </li>
               <li className="text-[12px] md:text-[14px] text-[#e5e5e5]">
-                <Link href="/">
+                <Link href="/movie">
                   <a>Movie</a>
                 </Link>
               </li>
               <li className="text-[12px] md:text-[14px] text-[#e5e5e5]">
-                <Link href="/">
+                <Link href="/mylist">
                   <a>My List</a>
                 </Link>
               </li>
