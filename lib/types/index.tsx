@@ -17,18 +17,28 @@ export interface IMovie {
   vote_count: number;
 }
 
+export interface Element {
+  type:
+    | 'Bloopers'
+    | 'Featurette'
+    | 'Behind the Scenes'
+    | 'Clip'
+    | 'Trailer'
+    | 'Teaser';
+}
+
 export interface BelongToCollection {
-  id: number, 
-  name: string, 
-  poster_path: string, 
-  backdrop: string
+  id: number;
+  name: string;
+  poster_path: string;
+  backdrop: string;
 }
 
 export interface ProductionCompanies {
   id: number;
   logo_path: string;
-  name: string
-  origin_country: string
+  name: string;
+  origin_country: string;
 }
 
 export interface Genres {
@@ -43,7 +53,7 @@ export interface SpokenLanguage {
 }
 
 export interface IMovieInfo {
-  adult: boolean
+  adult: boolean;
   backdrop_path: string;
   belongs_to_collection: BelongToCollection;
   budget: number;
