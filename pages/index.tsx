@@ -1,4 +1,3 @@
-import Banner from '../components/Banner/Banner';
 import Header from '../components/Header/Header';
 import Row from '../components/Row/Row';
 import { API_URL } from '../config';
@@ -7,6 +6,10 @@ import request from '../lib/services/helper';
 import getJSON from '../lib/services/requests';
 import Head from 'next/head';
 import SearchForm from '../components/Search/SearchForm';
+import useAuth from '../hooks/useAuth';
+import Loading from '../components/UI/Loading';
+import { modalState } from '../atoms/modalAtoms';
+import { useRecoilValue } from 'recoil';
 
 interface IHomePops {
   trending: IMovies;
@@ -27,6 +30,11 @@ const Home = ({
   romance,
   documentaries,
 }: IHomePops) => {
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
+
+  if (loading) return <Loading />;
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#151f2e]">
       <Head>
@@ -69,7 +77,6 @@ export const getServerSideProps = async () => {
     getJSON(`${API_URL}${request.fetchRomanceMovies}`),
     getJSON(`${API_URL}${request.fetchDocumentaries}`),
   ]);
-
 
   return {
     props: {
